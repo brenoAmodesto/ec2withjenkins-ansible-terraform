@@ -6,7 +6,6 @@ provider "aws" {
 #  source = "terraform-aws-modules/s3-bucket/aws"
 #  bucket = "novinha-safada"
 #  acl    = "private"
-
 #  versioning = {
 #    enabled = true
 #  }
