@@ -1,0 +1,40 @@
+
+- name: "Adding key for repository"
+  shell: |
+     curl -fsSL https://pkg.jenkins.io/debian/jenkins.io.key | sudo tee \
+     /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+
+- name: "Adding repository"
+  shell: |
+     echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+     https://pkg.jenkins.io/debian binary/ | sudo tee \
+     /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+- name: "Update repositories cache and install package"
+  apt:
+    name: jenkins
+    update_cache: yes
+
+- name: "Add repository for daemon"
+  ansible.builtin.apt_repository:
+    repo: add-apt-repository universe
+    state: present
+
+#- name: "Enable service jenkins on systemd"
+#  ansible.builtin.systemd:
+#     name: jenkins
+#     enabled: yes
+
+#- name: "Start jenkins service"
+#  ansible.builtin.systemd:
+#   state: started
+#   name: jenkins
+
+- name: "Running apt-update"
+  apt:
+    update_cache: yes
+
+- name: "Install the package"
+  apt: 
+    name: openjdk-11-jdk
+
