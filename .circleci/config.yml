@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run: 
          name: "Git install"
-         command: "sudo apt install git" 
+         command: "apt install git" 
 
 
       - run:
