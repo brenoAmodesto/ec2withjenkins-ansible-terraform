@@ -25,7 +25,7 @@ jobs:
 
       - run: 
           name: "Spin up EC2"
-          command: "terraform apply  -auto-approve"
+          command: "terraform destroy -auto-approve"
 
 workflows:
   say-hello-workflow:
