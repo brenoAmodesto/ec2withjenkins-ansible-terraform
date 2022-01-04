@@ -3,11 +3,9 @@ plugin: aws_ec2
 
 regions: sa-east-1
 
-filters:
-  tag:env:
-    - Jenkins
+
 hostnames:
   - 'tag:Name' 
   -  network-interface.association.public-ip
 compose:
-  ansible_host: instance_id, public_ip_address, tag_name_Jenkins
+  ansible_host: instance_id
