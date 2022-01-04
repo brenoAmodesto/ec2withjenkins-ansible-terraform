@@ -32,7 +32,11 @@ jobs:
       
       - run: 
           name: "Spin up EC2"
-          command: "terraform destroy -auto-approve"
+          command: "terraform apply -auto-approve"
+      
+      - run:
+          name: "Python3 && Boto"
+          command: "apt install python3 -y && apt install python3-pip && pip install boto3"
 
       - run:
          name: "Ansible list inventory"   
