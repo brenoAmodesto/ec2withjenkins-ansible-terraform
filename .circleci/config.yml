@@ -19,29 +19,29 @@ jobs:
          name: "Git install"
          command: "apt install git -y" 
 
-      - run: 
-         name: "Ansible installing"
-         command: "apt install ansible -y"
-      
-      - run:
-         name: "Ansible installing package aws"
-         command: "ansible-galaxy collection install amazon.aws"   
+#      - run: 
+#         name: "Ansible installing"
+#         command: "apt install ansible -y"
       
 #      - run:
-#          name: "Terraform init"
-#          command: "terraform init"
-      
-#      - run: 
-#          name: "Spin up EC2"
-#          command: "terraform apply -auto-approve"
+#         name: "Ansible installing package aws"
+#         command: "ansible-galaxy collection install amazon.aws"   
       
       - run:
-          name: "Python3 && Boto"
-          command: "apt install python3 -y && apt install python3-pip && pip install boto3"
+          name: "Terraform init"
+          command: "terraform init"
+      
+      - run: 
+          name: "Spin up EC2"
+          command: "terraform apply -auto-approve"
+      
+#      - run:
+#          name: "Python3 && Boto"
+#          command: "apt install python3 -y && apt install python3-pip && pip install boto3"
 
-      - run:
-         name: "Ansible list inventory"   
-         command: "ansible-inventory -i aws_ec2.yml --list"          
+#      - run:
+#         name: "Ansible list inventory"   
+#         command: "ansible-inventory -i aws_ec2.yml --list"          
 
 workflows:
   say-hello-workflow:
