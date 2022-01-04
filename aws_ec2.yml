@@ -5,4 +5,4 @@ regions: sa-east-1
 
 hostnames:
   - tag:name=value
-  - public-ip-address
+  - network-interface.association.public-ip
