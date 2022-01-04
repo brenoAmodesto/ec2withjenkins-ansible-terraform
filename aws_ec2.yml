@@ -5,7 +5,7 @@ regions: sa-east-1
 
 
 hostnames:
-  - 'tag:Name' 
+  - 'tag:Jenkins' 
   -  network-interface.association.public-ip
 compose:
   ansible_host: instance_id
