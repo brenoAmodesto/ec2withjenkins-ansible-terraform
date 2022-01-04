@@ -10,6 +10,7 @@ jobs:
         aws_access_key_id: AWS_ACCESS_KEY_ID
         aws_secret_access_key: AWS_SECRET_ACCESS_KEY
         aws_default_region: AWS_DEFAULT_REGION 
+        
     
     steps:
       
@@ -26,13 +27,13 @@ jobs:
          name: "Ansible installing package aws"
          command: "ansible-galaxy collection install amazon.aws"   
       
-      - run:
-          name: "Terraform init"
-          command: "terraform init"
+#      - run:
+#          name: "Terraform init"
+#          command: "terraform init"
       
-      - run: 
-          name: "Spin up EC2"
-          command: "terraform apply -auto-approve"
+#      - run: 
+#          name: "Spin up EC2"
+#          command: "terraform apply -auto-approve"
       
       - run:
           name: "Python3 && Boto"
