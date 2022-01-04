@@ -1,6 +1,6 @@
 - name: "Jenkins installing"
   become: yes
-  hosts: tag_name_Jenkins
+  hosts: tag:name=Jenkins
   roles: 
    - jenkins
 
