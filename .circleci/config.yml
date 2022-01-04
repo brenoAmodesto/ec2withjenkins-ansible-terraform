@@ -24,11 +24,7 @@ jobs:
       
       - run:
          name: "Ansible installing package aws"
-         command: "ansible-galaxy collection install amazon.aws"
-      
-      - run:
-         name: "Ansible list inventory"   
-         command: "ansible-inventory -i aws_ec2.yml --list"   
+         command: "ansible-galaxy collection install amazon.aws"   
       
       - run:
           name: "Terraform init"
@@ -37,6 +33,10 @@ jobs:
       - run: 
           name: "Spin up EC2"
           command: "terraform destroy -auto-approve"
+
+      - run:
+         name: "Ansible list inventory"   
+         command: "ansible-inventory -i aws_ec2.yml --list"          
 
 workflows:
   say-hello-workflow:
