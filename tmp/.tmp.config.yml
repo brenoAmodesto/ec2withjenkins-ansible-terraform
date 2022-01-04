@@ -12,17 +12,28 @@ jobs:
         aws_default_region: AWS_DEFAULT_REGION 
     
     steps:
+      
       - checkout
       - run: 
          name: "Git install"
          command: "apt install git -y" 
 
-
+      - run: 
+         name: "Ansible installing"
+         command: "apt install ansible -y"
+      
+      - run:
+         name: "Ansible installing package aws"
+         command: "ansible-galaxy collection install amazon.aws"
+      
+      - run:
+         name: "Ansible list inventory"   
+         command: "ansible-inventory -i aws_ec2.yml --list"   
+      
       - run:
           name: "Terraform init"
           command: "terraform init"
       
-
       - run: 
           name: "Spin up EC2"
           command: "terraform destroy -auto-approve"
