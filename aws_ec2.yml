@@ -4,5 +4,5 @@ plugin: aws_ec2
 regions: sa-east-1
 
 hostnames:
-  - tag_name_Jenkins
-  - public-ip-addres
+  - tag:name=value
+  - public-ip-address
