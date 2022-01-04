@@ -20,16 +20,6 @@
     repo: add-apt-repository universe
     state: present
 
-#- name: "Enable service jenkins on systemd"
-#  ansible.builtin.systemd:
-#     name: jenkins
-#     enabled: yes
-
-#- name: "Start jenkins service"
-#  ansible.builtin.systemd:
-#   state: started
-#   name: jenkins
-
 - name: "Running apt-update"
   apt:
     update_cache: yes
@@ -38,3 +28,12 @@
   apt: 
     name: openjdk-11-jdk
 
+- name: "Enable service jenkins on systemd"
+  ansible.builtin.systemd:
+     name: jenkins
+     enabled: yes
+
+- name: "Start jenkins service"
+  ansible.builtin.systemd:
+   state: started
+   name: jenkins
