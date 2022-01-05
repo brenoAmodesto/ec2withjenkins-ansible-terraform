@@ -49,15 +49,15 @@ jobs:
          name: "Ansible list inventory"   
          command: "ansible-inventory -i inventory.aws_ec2.yml --graph" 
       
-      - run:
-          name: "Ansible ping"
-          command: ansible -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
+#      - run:
+#          name: "Ansible ping"
+#          command: ansible -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
 
       - run: 
          name: "Playbook apply"
          command: |
           ls
-          ansible-playbook -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu site.yml
+          ansible-playbook -i inventory.aws_ec2.yml --limit "tag_name_Jenkins" -u ubuntu site.yml
 
 workflows:
   say-hello-workflow:
