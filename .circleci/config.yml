@@ -33,13 +33,13 @@ jobs:
          name: "Ansible installing package aws"
          command: "ansible-galaxy collection install amazon.aws"   
       
-      - run:
-          name: "Terraform init"
-          command: "terraform init"
+#      - run:
+#          name: "Terraform init"
+#          command: "terraform init"
       
-      - run: 
-          name: "Spin up EC2"
-          command: "terraform apply -auto-approve"
+#      - run: 
+#          name: "Spin up EC2"
+#          command: "terraform apply -auto-approve"
       
       - run:
           name: "Python3 && Boto"
@@ -51,7 +51,7 @@ jobs:
       
       - run:
           name: "Ansible ping"
-          command: "ansible all -m ping"
+          command: "ansible -i aws_ec2.yml -m ping"
       
 #      - run:
 #          name: "s"
