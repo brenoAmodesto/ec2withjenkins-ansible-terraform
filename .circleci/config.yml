@@ -51,7 +51,7 @@ jobs:
       
       - run:
           name: "Ansible ping"
-          command: "ansible -vvvv -i inventory.aws_ec2.yml tag_Name_mamada2 -u ubuntu -m 'ping' "
+          command: "ansible -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu -m 'ping' "
       
 #      - run:
 #          name: "s"
