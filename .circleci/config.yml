@@ -25,39 +25,39 @@ jobs:
          name: "Git install"
          command: "apt install git -y" 
 
-      - run: 
-         name: "Ansible installing"
-         command: "apt install ansible -y"
-      
-      - run:
-         name: "Ansible installing package aws"
-         command: "ansible-galaxy collection install amazon.aws"   
+#      - run: 
+#         name: "Ansible installing"
+#         command: "apt install ansible -y"
       
 #      - run:
-#          name: "Terraform init"
-#          command: "terraform init"
-      
-#      - run: 
-#          name: "Spin up EC2"
-#          command: "terraform apply -auto-approve"
+#         name: "Ansible installing package aws"
+#         command: "ansible-galaxy collection install amazon.aws"   
       
       - run:
-          name: "Python3 && Boto"
-          command: "apt install python3 -y && apt install python3-pip && pip install boto3"
+          name: "Terraform init"
+          command: "terraform init"
+      
+      - run: 
+          name: "Spin up EC2"
+          command: "terraform destroy -auto-approve"
+      
+#      - run:
+#          name: "Python3 && Boto"
+#          command: "apt install python3 -y && apt install python3-pip && pip install boto3"
 
-      - run:
-         name: "Ansible list inventory"   
-         command: "ansible-inventory -i inventory.aws_ec2.yml --graph" 
+#      - run:
+#         name: "Ansible list inventory"   
+#         command: "ansible-inventory -i inventory.aws_ec2.yml --graph" 
       
 #      - run:
 #          name: "Ansible ping"
 #          command: ansible -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
 
-      - run: 
-         name: "Playbook apply"
-         command: |
-          ls
-          ansible-playbook -i inventory.aws_ec2.yml --limit "tag_name_Jenkins" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
+#      - run: 
+#         name: "Playbook apply"
+#         command: |
+#          ls
+#          ansible-playbook -i inventory.aws_ec2.yml --limit "tag_name_Jenkins" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
 
 workflows:
   say-hello-workflow:
