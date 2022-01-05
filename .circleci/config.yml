@@ -51,7 +51,7 @@ jobs:
       
       - run:
           name: "Ansible ping"
-          command: "ansible aws_ec2.yml -m ping"
+          command: "ansible -i aws_ec2.yml -m ping"
       
 #      - run:
 #          name: "s"
