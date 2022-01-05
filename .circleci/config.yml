@@ -1,6 +1,8 @@
 
 version: 2.1
 kind: pipeline
+type: docker
+name: jenkins
 
 jobs:
   mamada2:
@@ -17,8 +19,6 @@ jobs:
       - add_ssh_keys:
           fingerprints:
            - "90:23:49:7c:b1:52:7a:e4:ed:ef:d0:98:e8:c8:ee:b7"
-            
-    
       
       - checkout
       - run: 
@@ -51,7 +51,7 @@ jobs:
       
       - run:
           name: "Ansible ping"
-          command: "ansible -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' -m 'ping' "
+          command: ansible -vvvv -i inventory.aws_ec2.yml tag_name_Jenkins -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
 
       - run: 
          name: "Playbook apply"
