@@ -1,8 +1,0 @@
----
-plugin: aws_ec2
-
-regions: sa-east-1
-
-hostnames:
-  - tag:name=Jenkins
-  - network-interface.association.public-ip
