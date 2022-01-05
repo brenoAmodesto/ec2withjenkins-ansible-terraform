@@ -1,4 +1,4 @@
-
+---
 - name: "Adding key for repository"
   shell: |
      curl -fsSL https://pkg.jenkins.io/debian/jenkins.io.key | sudo tee \
