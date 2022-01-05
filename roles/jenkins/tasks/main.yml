@@ -10,10 +10,13 @@
      https://pkg.jenkins.io/debian binary/ | sudo tee \
      /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-- name: "Update repositories cache and install package"
+- name: "Apt update & apt upgrade"
+  shell: |
+     apt update && apt upgrade
+
+- name: "install package"
   apt:
     name: jenkins
-    update_cache: yes
 
 - name: "Add repository for daemon"
   ansible.builtin.apt_repository:
