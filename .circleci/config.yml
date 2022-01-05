@@ -49,9 +49,9 @@ jobs:
          name: "Ansible list inventory"   
          command: "ansible-inventory -i inventory.aws_ec2.yml --graph" 
       
-#      - run:
-#          name: "Ansible ping"
-#          command: "ansible -i aws_ec2.yml -m ping"
+      - run:
+          name: "Ansible ping"
+          command: "ansible -i inventory.aws_ec2.yml tag_Name_Jenkins -u ubuntu -m 'ping' "
       
 #      - run:
 #          name: "s"
