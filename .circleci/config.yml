@@ -57,7 +57,7 @@ jobs:
          name: "Playbook apply"
          command: |
           ls
-          ansible-playbook -i inventory.aws_ec2.yml --limit "tag_name_Jenkins" -u ubuntu site.yml
+          ansible-playbook -i inventory.aws_ec2.yml --limit "tag_name_Jenkins" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' site.yml
 
 workflows:
   say-hello-workflow:
