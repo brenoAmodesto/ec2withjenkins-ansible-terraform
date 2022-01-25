@@ -22,10 +22,10 @@
 #  apt:
 #    name: jenkins
 
-- name: "Add repository for daemon"
-  ansible.builtin.apt_repository:
-    repo: add-apt-repository universe
-    state: present
+# - name: "Add repository for daemon"
+#  ansible.builtin.apt_repository:
+#    repo: add-apt-repository universe
+#    state: present
 
 - name: "Running apt-update"
   apt:
