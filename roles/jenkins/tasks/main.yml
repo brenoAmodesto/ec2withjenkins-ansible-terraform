@@ -10,11 +10,15 @@
      https://pkg.jenkins.io/debian binary/ | sudo tee \
      /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-- name: "Apt update & apt upgrade"
-  shell: |
-     apt update && apt upgrade
+- name: "Update && upgrade"
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400
 
-- name: "install package"
+
+- name: "install jenkins package"
   apt:
     name: jenkins
 
