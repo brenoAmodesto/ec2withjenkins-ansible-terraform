@@ -18,10 +18,9 @@
 #    cache_valid_time: 86400
 
 
-- name: "install jenkins package"
-  apt:
-    name: jenkins
-    update_cache: yes
+# - name: "install jenkins package"
+#  apt:
+#    name: jenkins
 
 - name: "Add repository for daemon"
   ansible.builtin.apt_repository:
