@@ -10,17 +10,18 @@
      https://pkg.jenkins.io/debian binary/ | sudo tee \
      /etc/apt/sources.list.d/jenkins.list > /dev/null
 
-- name: "Update && upgrade"
-  become: true
-  apt:
-    upgrade: yes
-    update_cache: yes
-    cache_valid_time: 86400
+#- name: "Update && upgrade"
+#  become: true
+#  apt:
+#    upgrade: yes
+#    update_cache: yes
+#    cache_valid_time: 86400
 
 
 - name: "install jenkins package"
   apt:
     name: jenkins
+    state: present
 
 - name: "Add repository for daemon"
   ansible.builtin.apt_repository:
