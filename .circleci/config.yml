@@ -20,10 +20,10 @@ jobs:
           fingerprints:
            - "90:23:49:7c:b1:52:7a:e4:ed:ef:d0:98:e8:c8:ee:b7"
       
-#      - checkout
-#      - run: 
-#         name: "Git install"
-#         command: "apt install git -y" 
+      - checkout
+      - run: 
+         name: "Git install"
+         command: "apt install git -y" 
 
 #      - run: 
 #         name: "Ansible installing"
