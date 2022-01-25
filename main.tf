@@ -9,7 +9,7 @@ provider "aws" {
 #  versioning = {
 #    enabled = true
 #  }
-#
+
 #}
 
 #resource "aws_key_pair" "jenkins-t" {
