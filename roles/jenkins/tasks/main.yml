@@ -21,7 +21,7 @@
 - name: "install jenkins package"
   apt:
     name: jenkins
-    state: present
+    update_cache: yes
 
 - name: "Add repository for daemon"
   ansible.builtin.apt_repository:
