@@ -27,13 +27,15 @@
 #    repo: add-apt-repository universe
 #    state: present
 
-- name: "Running apt-update"
-  apt:
-    update_cache: yes
+#- name: "Running apt-update"
+#  apt:
+#    update_cache: yes
 
-- name: "Install the package"
+- name: "Install the package openjdk11"
   apt: 
     name: openjdk-11-jdk
+    state: latest
+    install_recommends: no
 
 - name: "Enable service jenkins on systemd"
   ansible.builtin.systemd:
